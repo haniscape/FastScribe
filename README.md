@@ -1,0 +1,2 @@
+# QuickType
+ speed typing application
