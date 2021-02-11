@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Hammersmith+One&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  background-color: #f4a460;
+  background-image: url(../img/egypt.jpg);
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+  font-family: 'Hammersmith One', sans-serif;
+  color: #fff9dc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* SCREEN main card */
+.screen {
+  height: 95vh;
+  width: 80%;
+  border-radius: 1rem;
+  backdrop-filter: brightness(0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* STAGE games */
+.stage {
+  display: flex;
+  flex: 3;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+#quoteInput {
+  color: red;
+}
+#quoteDisplay {
+  color: orange;
+}
+
+.timer {
+  font-size: 10rem;
+  background: linear-gradient(to right top, #e5ded8, #a9754c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* text-align: center; */
+}
+
+/* INFO dashboard */
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right top, #e5ded8, #965623);
+  border-radius: 1rem;
+  height: 100%;
+  padding: 30px 15px;
+}
+
+.link {
+  display: flex;
+  margin: 0.5rem 0.1rem;
+  padding: 0.3rem 2rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.link img {
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+  margin-right: 0.6rem;
+}
+
+.link a {
+  text-decoration: none;
+  color: beige;
+}
+
+.quicktype {
+  color: #916346;
+  padding: 0.2rem;
+}
+
+.quicktype h3 {
+  font-size: 1rem;
+  margin-bottom: -0.2rem;
+}
+
+.quicktype em {
+  font-size: 0.7rem;
+}
+.quicktype blockquote {
+  font-size: 0.6rem;
+  text-align: justify;
+  margin-top: 1rem;
+  font-style: italic;
+  text-indent: 1.5rem;
+  color: #a48371;
+}
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 600px) {
+  .screen {
+    flex-direction: column;
+  }
+
+  .quote-input#quoteInput {
+    width: 50%;
+    min-height: 200px;
+  }
+  .quote-display#quoteDisplay {
+    width: 50%;
+    min-height: 200px;
+  }
+}
