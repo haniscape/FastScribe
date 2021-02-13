@@ -40,7 +40,7 @@ main {
 }
 
 #quoteInput {
-  color: #96633a;
+  color: #1b5a5a;
   overflow-x: hidden;
   font-family: 'Hammersmith One';
   font-size: 1rem;
@@ -106,7 +106,7 @@ textarea::-webkit-scrollbar-thumb {
 .lpm {
   font-size: 2.2rem;
   line-height: 1;
-  background: linear-gradient(to right top, #7d4a22, #e9dcd3);
+  background: linear-gradient(to right top, #150101, #724503);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
@@ -151,8 +151,9 @@ textarea::-webkit-scrollbar-thumb {
 }
 
 .fastscribe h3 {
-  font-size: 1rem;
+  font-size: 2rem;
   margin-bottom: -0.2rem;
+  color: #1b5a5a;
 }
 
 .fastscribe em {
@@ -171,23 +172,31 @@ textarea::-webkit-scrollbar-thumb {
 
 .scribe blockquote {
   font-size: 0.6rem;
-  margin: 0 1rem 0 0rem;
+  margin: 0 0.2rem;
   font-style: italic;
   color: #ae7e56;
+  text-align: left;
+}
+
+#footer {
+  font-size: 0.5rem;
+  text-align: center;
+  color: #b08059;
 }
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 600px) {
   .screen {
     flex-direction: column;
-  }
-
-  .quote-input#quoteInput {
-    width: 50%;
-    min-height: 200px;
+    height: 170vh;
+    width: 100%;
   }
   .quote-display#quoteDisplay {
-    width: 50%;
-    min-height: 200px;
+    width: 90vw;
+    min-height: 65%;
+  }
+  .quote-input#quoteInput {
+    width: 90vw;
+    height: 47%;
   }
 }
