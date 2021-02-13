@@ -29,7 +29,7 @@ main {
   align-items: center;
 }
 
-/* STAGE games */
+/* STAGE */
 .stage {
   display: flex;
   flex: 3;
@@ -38,12 +38,24 @@ main {
   align-items: center;
   height: 90%;
 }
+#stage-display {
+  color: #c6a890;
+  overflow-x: hidden;
+  font-size: 1.2rem;
+  resize: none;
+  text-indent: 10px;
+  padding: 0.75rem 1rem;
+  width: 90%;
+  height: 50%;
+  user-select: none;
+  text-align: justify;
+}
 
-#quoteInput {
-  color: #1b5a5a;
+#stage-input {
+  color: #81512a;
   overflow-x: hidden;
   font-family: 'Hammersmith One';
-  font-size: 1rem;
+  font-size: 1.2rem;
   text-indent: 10px;
   resize: none;
   text-indent: 10px;
@@ -51,20 +63,6 @@ main {
   width: 90%;
   height: 50%;
   background-color: #cfb8a5;
-  text-align: justify;
-}
-
-#quoteDisplay {
-  color: #c6a890;
-  overflow-x: hidden;
-  font-size: 1.3rem;
-
-  resize: none;
-  text-indent: 10px;
-
-  width: 90%;
-  height: 50%;
-  user-select: none;
   text-align: justify;
 }
 
@@ -81,7 +79,7 @@ textarea::-webkit-scrollbar-thumb {
   border-radius: 20px;
 }
 
-.top {
+.info-top {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -112,7 +110,7 @@ textarea::-webkit-scrollbar-thumb {
   user-select: none;
 }
 
-/* INFO dashboard */
+/* INFO  */
 .info {
   flex: 1;
   display: flex;
@@ -144,19 +142,19 @@ textarea::-webkit-scrollbar-thumb {
   color: beige;
 }
 
-.fastscribe {
+.info-fastscribe {
   color: #96633a;
   padding: 0.2rem;
   user-select: none;
 }
 
-.fastscribe h3 {
+.info-fastscribe h3 {
   font-size: 2rem;
   margin-bottom: -0.2rem;
   color: #1b5a5a;
 }
 
-.fastscribe em {
+.info-fastscribe em {
   font-size: 0.7rem;
 }
 
@@ -178,7 +176,7 @@ textarea::-webkit-scrollbar-thumb {
   text-align: left;
 }
 
-#footer {
+.info-footer {
   font-size: 0.5rem;
   text-align: center;
   color: #b08059;
@@ -187,46 +185,51 @@ textarea::-webkit-scrollbar-thumb {
 /* MEDIA QUERIES */
 @media only screen and (max-width: 600px) {
   .screen {
-    flex-direction: column;
-    height: 200vh;
+    height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0;
   }
   .stage {
     width: 100%;
-    height: 130vh;
+    height: 65vh;
+  }
+  #stage-display {
+    height: 50%;
+    width: 90%;
+  }
+  #stage-input {
+    height: 50%;
+    width: 90%;
   }
   .info {
     width: 100%;
     height: auto;
+    border-radius: 30px 30px 0 0;
   }
-  #quoteDisplay {
-    height: 75%;
-    font-size: 1rem;
-  }
-  #quoteInput {
-    height: 30%;
-  }
-  .fastscribe {
+
+  .info-fastscribe {
     margin: 20px;
     text-align: center;
     width: 70%;
   }
 
-  .fastscribe h3 {
+  .info-fastscribe h3 {
     font-size: 1.6rem;
   }
 }
 @media only screen and (max-width: 270px) {
   .screen {
     border-radius: 0;
-    height: 300vh;
   }
 
   .link {
     display: flex;
     flex-direction: column;
   }
-  .fastscribe {
+  .info-fastscribe {
     margin: 20px 0;
     text-align: center;
     width: auto;
