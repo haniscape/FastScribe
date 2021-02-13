@@ -17,7 +17,6 @@ function getQuote() {
 }
 
 
-showQuote();
 
 
 //  variables for Stage Display and Stage Input
@@ -34,4 +33,5 @@ async function showQuote() {
 }
 
 
+showQuote();
 
