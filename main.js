@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // source for the text offered to the user to be typed 
 function getQuote() {
-    return fetch('http://api.quotable.io/random')
+    return fetch('https://api.quotable.io/random')
         .then(function (response) {
             return response.json();
         })
