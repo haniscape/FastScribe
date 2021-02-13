@@ -1,2 +1,2 @@
-# QuickType
+# FastScribe
  speed typing application
