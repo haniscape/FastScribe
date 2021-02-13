@@ -23,7 +23,7 @@ main {
   height: 95vh;
   width: 80%;
   border-radius: 1rem;
-  backdrop-filter: brightness(0.35);
+  backdrop-filter: brightness(0.22) sepia(1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,10 +40,45 @@ main {
 }
 
 #quoteInput {
-  color: red;
+  color: #96633a;
+  overflow-x: hidden;
+  font-family: 'Hammersmith One';
+  font-size: 1rem;
+  text-indent: 10px;
+  resize: none;
+  text-indent: 10px;
+  padding: 0.75rem 1rem;
+  width: 90%;
+  height: 50%;
+  background-color: #cfb8a5;
+  text-align: justify;
 }
+
 #quoteDisplay {
-  color: orange;
+  color: #c6a890;
+  overflow-x: hidden;
+  font-size: 1.3rem;
+
+  resize: none;
+  text-indent: 10px;
+
+  width: 90%;
+  height: 50%;
+  user-select: none;
+  text-align: justify;
+}
+
+textarea::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+textarea::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #7d4a22;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: #763e24;
+  border-radius: 20px;
 }
 
 .top {
@@ -56,17 +91,24 @@ main {
   width: 30%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: self-end;
+  justify-content: flex-start;
+  margin: 0 15px;
+}
+
+.gauge em {
+  user-select: none;
+  font-size: 0.8rem;
 }
 
 .timer,
 .wpm,
 .lpm {
-  font-size: 2.75rem;
-  background: linear-gradient(to left bottom, #e0e0d2, #a8754c);
+  font-size: 2.2rem;
+  line-height: 1;
+  background: linear-gradient(to right top, #7d4a22, #e9dcd3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 3rem;
   user-select: none;
 }
 
@@ -102,26 +144,36 @@ main {
   color: beige;
 }
 
-.quicktype {
-  color: #916346;
+.fastscribe {
+  color: #96633a;
   padding: 0.2rem;
+  user-select: none;
 }
 
-.quicktype h3 {
+.fastscribe h3 {
   font-size: 1rem;
   margin-bottom: -0.2rem;
 }
 
-.quicktype em {
+.fastscribe em {
   font-size: 0.7rem;
 }
-.quicktype blockquote {
+
+.scribe {
+  display: flex;
+  align-items: flex-end;
+  margin: 20px 0;
+}
+
+.scribe img {
+  max-height: 6rem;
+}
+
+.scribe blockquote {
   font-size: 0.6rem;
-  text-align: justify;
-  margin-top: 1rem;
+  margin: 0 1rem 0 0rem;
   font-style: italic;
-  text-indent: 1.5rem;
-  color: #a48371;
+  color: #ae7e56;
 }
 
 /* MEDIA QUERIES */

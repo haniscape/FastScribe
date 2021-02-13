@@ -1,0 +1,1 @@
+const API_QUOTE = 'http://api.quotable.io/random';
