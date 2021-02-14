@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Hammersmith+One&display=swap');
 
+/* GENERAL STYLING */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -18,6 +19,27 @@ main {
   justify-content: center;
   align-items: center;
 }
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
+  position: relative;
+}
+
+.incorrect::before {
+  content: '';
+  background-color: #fffa6d;
+  width: 1rem;
+  height: 0.1rem;
+  position: absolute;
+  z-index: -1;
+  top: 1.1rem;
+  transform: translateX(-5px);
+}
+
 /* SCREEN main card */
 .screen {
   height: 95vh;
@@ -49,7 +71,8 @@ main {
   width: 90%;
   height: 50%;
   user-select: none;
-  text-align: justify;
+  text-align: left;
+  box-sizing: content-box;
 }
 
 #stage-input {
@@ -64,7 +87,14 @@ main {
   width: 90%;
   height: 50%;
   background-color: #cfb8a5;
-  text-align: justify;
+  text-align: left;
+  outline: none;
+  box-sizing: content-box;
+}
+#stage-input:focus,
+#stage-input:focus-within,
+#stage-input:focus-visible {
+  border: 3px solid #1b5a5a;
 }
 
 textarea::-webkit-scrollbar {
@@ -92,7 +122,8 @@ textarea::-webkit-scrollbar-thumb {
 .gauge {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
+  margin-bottom: 1%;
+  margin-bottom: -0.2rem;
 }
 
 .gauge em {
@@ -103,12 +134,13 @@ textarea::-webkit-scrollbar-thumb {
 .timer,
 .wpm,
 .lpm {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   line-height: 1;
   background: linear-gradient(to right top, #150101, #724503);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
+  margin-bottom: -0.3rem;
 }
 
 /* INFO  */
@@ -121,37 +153,47 @@ textarea::-webkit-scrollbar-thumb {
   background: linear-gradient(to right top, #e5ded8, #965623);
   border-radius: 1rem;
   height: 100%;
+  min-width: 40%;
   padding: 15px;
 }
 
-.link {
+.info-links {
+  width: 100%;
   display: flex;
-  margin: 0.5rem 0.1rem;
-  padding: 0.3rem 2rem;
+  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+}
+
+.link {
+  margin-top: 1rem;
+  display: grid;
+  grid-auto-flow: column;
 }
 
 .link img {
-  max-width: 1.5rem;
-  max-height: 1.5rem;
-  margin-right: 0.6rem;
+  max-width: 1rem;
+  max-height: 1rem;
+  margin-right: 0.5rem;
 }
 
 .link a {
   text-decoration: none;
-  color: beige;
+  color: #f5f5dc;
+  font-size: 0.9rem;
 }
 
 .info-fastscribe {
   color: #96633a;
-  padding: 0.2rem;
   user-select: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .info-fastscribe h3 {
-  font-size: 2rem;
-  margin-bottom: -0.2rem;
+  font-size: 2.3rem;
+  margin-bottom: 0.3rem;
   color: #1b5a5a;
 }
 
@@ -162,11 +204,10 @@ textarea::-webkit-scrollbar-thumb {
 .scribe {
   display: flex;
   align-items: flex-end;
-  margin: 20px 0;
 }
 
 .scribe img {
-  max-height: 6rem;
+  max-height: 4rem;
 }
 
 .scribe blockquote {
@@ -182,9 +223,12 @@ textarea::-webkit-scrollbar-thumb {
   text-align: center;
   color: #b08059;
 }
+.copyrights {
+  margin-top: 1rem;
+}
 
 /* MEDIA QUERIES */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 650px) and (min-width: 271px) {
   .screen {
     height: 100vh;
     width: 100%;
@@ -193,6 +237,9 @@ textarea::-webkit-scrollbar-thumb {
     justify-content: space-between;
     border-radius: 0;
   }
+  .info-top {
+    flex-direction: column;
+  }
   .stage {
     width: 100%;
     height: 65vh;
@@ -200,10 +247,12 @@ textarea::-webkit-scrollbar-thumb {
   #stage-display {
     height: 50%;
     width: 90%;
+    box-sizing: border-box;
   }
   #stage-input {
     height: 50%;
     width: 90%;
+    box-sizing: border-box;
   }
   .info {
     width: 100%;
@@ -216,14 +265,18 @@ textarea::-webkit-scrollbar-thumb {
     text-align: center;
     width: 70%;
   }
-
-  .info-fastscribe h3 {
-    font-size: 1.6rem;
-  }
 }
 @media only screen and (max-width: 270px) {
   .screen {
     border-radius: 0;
+    flex-direction: column;
+    height: 200vh;
+  }
+  .stage {
+    height: 80vh;
+  }
+  .info {
+    height: 120vh;
   }
 
   .link {
@@ -234,5 +287,45 @@ textarea::-webkit-scrollbar-thumb {
     margin: 20px 0;
     text-align: center;
     width: auto;
+  }
+  .info-fastscribe h3 {
+    font-size: 1rem;
+  }
+  .link a {
+    font-size: 0.5rem;
+  }
+  .scribe {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+  }
+}
+
+@media only screen and (max-height: 850px) {
+  .info-top {
+    flex-direction: row;
+  }
+  .gauge {
+    width: 30%;
+    margin: 10px 1rem 0;
+  }
+}
+
+@media only screen and (min-height: 601px) {
+  .info-top {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-height: 400px) {
+  .screen {
+    min-height: 150vh;
+  }
+  main {
+    min-height: 160vh;
+  }
+  .link {
+    margin: 0.3rem;
   }
 }

@@ -34,4 +34,3 @@ async function showQuote() {
 
 
 showQuote();
-
