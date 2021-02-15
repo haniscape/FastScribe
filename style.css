@@ -21,7 +21,7 @@ main {
 }
 
 .correct {
-  color: green;
+  color: #26c500;
 }
 
 .incorrect {
@@ -32,7 +32,7 @@ main {
 .incorrect::before {
   content: '';
   background-color: #fffa6d;
-  width: 1rem;
+  width: 0.7rem;
   height: 0.1rem;
   position: absolute;
   z-index: -1;
