@@ -28,10 +28,9 @@ const STAGEINPUT = document.querySelector('#stage-input')
 
 // render what returned from the API into the Stage Display,
 // and preparing our Stage Input area
-async function showQuote() {
+async function newQuote() {
     const QUOTE = await getQuote()
-    console.log(QUOTE);
-    // clearing the Stage Display
+    // clearing the Stage Display for the new quote
     STAGEDISPLAY.innerHTML = ''
     //  getting individual element for each character of the quote by looping in array
     QUOTE.split('').forEach(
@@ -47,6 +46,8 @@ async function showQuote() {
             // append this new Character Span as child inside the Stage Display
             STAGEDISPLAY.appendChild(CHARACTERSPAN)
         })
+    // making sure the Stage Input area is cleared
+    STAGEINPUT.value = null
 }
 
 
@@ -56,11 +57,14 @@ async function showQuote() {
 STAGEINPUT.addEventListener('input', function () {
     console.log('changed')
 
-    // --> ARRAYS
+    // --> declaring the variables
     // an Array for all spans on the Stage Display
     const DISPLAYARRAY = STAGEDISPLAY.querySelectorAll('span')
     // another Array for each individual Character (including white-spaces) using  split method with empty separator ('')
     const INPUTARRAY = STAGEINPUT.value.split('')
+    // a Boolean variable for completing the task correctly
+    let completed = true
+
 
     // --> comparing CHARACTERS between Stage Display and Stage Input 
     // Loop inside DISPLAYARRAY, using 2 parameters (the character , and its position)
@@ -72,27 +76,29 @@ STAGEINPUT.addEventListener('input', function () {
         if (character == null) {
             characterSpan.classList.remove('incorrect')
             characterSpan.classList.remove('correct')
+            completed = false
         }
 
-        // condition if charater is correct
+        // condition if character is correct
         else if (character === characterSpan.innerText) {
             characterSpan.classList.add('correct')
             characterSpan.classList.remove('incorrect')
-            // condition if character is incorrect
-        } else {
+        }
+        // condition if character is incorrect
+        else {
             characterSpan.classList.remove('correct')
             characterSpan.classList.add('incorrect')
+            completed = false
         }
-
-
-
     })
 
+    // when the user completes the task successfully clear the Stage Input and prepare new quote
+    if (completed) newQuote()
 
 
 
 })
 
 
-showQuote();
+newQuote();
 
