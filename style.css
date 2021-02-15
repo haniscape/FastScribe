@@ -37,7 +37,6 @@ main {
   position: absolute;
   z-index: -1;
   top: 1.1rem;
-  transform: translateX(-5px);
 }
 
 /* SCREEN main card */
