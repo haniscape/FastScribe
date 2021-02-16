@@ -129,9 +129,9 @@ textarea::-webkit-scrollbar-thumb {
   font-size: 0.8rem;
 }
 
-.timer,
-.wpm,
-.lpm {
+#timer,
+#wpm,
+#lpm {
   font-size: 2.4rem;
   line-height: 1;
   background: linear-gradient(to right top, #150101, #724503);

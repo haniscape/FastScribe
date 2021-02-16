@@ -1,11 +1,16 @@
-// Copyright Year updating automatically
+// Copyright Year updating automatically using 
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("copyrightYear").innerHTML = new Date().getFullYear();
 });
 
 
+//  Variables for Elements
+const STAGEDISPLAY = document.querySelector('#stage-display')
+const STAGEINPUT = document.querySelector('#stage-input')
+const TIMER = document.querySelector('#timer')
 
-// source for the text offered to the user to be typed 
+// GET QUOTE function
+// --> fetching a source of texts to be typed 
 function getQuote() {
     return fetch('https://api.quotable.io/random')
         .then(function (response) {
@@ -18,16 +23,9 @@ function getQuote() {
 
 
 
-
-//  variables for Stage Display and Stage Input
-const STAGEDISPLAY = document.querySelector('#stage-display');
-const STAGEINPUT = document.querySelector('#stage-input')
-
-
-
-
-// render what returned from the API into the Stage Display,
-// and preparing our Stage Input area
+// NEW QUOTE function
+// --> render what returned from the API into the Stage Display,
+// --> and preparing our Stage Display and Input areas
 async function newQuote() {
     const QUOTE = await getQuote()
     // clearing the Stage Display for the new quote
@@ -38,9 +36,6 @@ async function newQuote() {
             // create new span
             const CHARACTERSPAN = document.createElement('span')
 
-            // ->test<<  adding a class named 'incorrect' to the span
-            // CHARACTERSPAN.classList.add('incorrect')
-
             // put individual character inside its individual span
             CHARACTERSPAN.innerText = character
             // append this new Character Span as child inside the Stage Display
@@ -48,23 +43,26 @@ async function newQuote() {
         })
     // making sure the Stage Input area is cleared
     STAGEINPUT.value = null
+    // fire Start Timer function
+    startTimer()
 }
 
 
 
 
-// EVENT LISTENER for the Stage Input 
+
+
+// EVENT LISTENER for Stage Input 
 STAGEINPUT.addEventListener('input', function () {
     console.log('changed')
 
-    // --> declaring the variables
-    // an Array for all spans on the Stage Display
+    // --> EVENT variables
+    // an Array for Spans that will be in Stage Display
     const DISPLAYARRAY = STAGEDISPLAY.querySelectorAll('span')
     // another Array for each individual Character (including white-spaces) using  split method with empty separator ('')
     const INPUTARRAY = STAGEINPUT.value.split('')
     // a Boolean variable for completing the task correctly
     let completed = true
-
 
     // --> comparing CHARACTERS between Stage Display and Stage Input 
     // Loop inside DISPLAYARRAY, using 2 parameters (the character , and its position)
@@ -78,7 +76,6 @@ STAGEINPUT.addEventListener('input', function () {
             characterSpan.classList.remove('correct')
             completed = false
         }
-
         // condition if character is correct
         else if (character === characterSpan.innerText) {
             characterSpan.classList.add('correct')
@@ -91,14 +88,40 @@ STAGEINPUT.addEventListener('input', function () {
             completed = false
         }
     })
-
-    // when the user completes the task successfully clear the Stage Input and prepare new quote
+    // when task is completed: start New Quote function
     if (completed) newQuote()
-
-
-
 })
 
 
-newQuote();
 
+
+// START TIMER function
+// --> declare a variable to store initial Date
+let startingPoint
+function startTimer() {
+    // reset Timer to Zero
+    TIMER.innerText = 0
+    // fill the startTime variable with current time using   new Date() constructor
+    // Notice : Date Object is static so we need to update it using an interval of 1 second (1000 milliseconds)
+    startingPoint = new Date()
+    setInterval(() => {
+        TIMER.innerText = getTimerTime()
+    }, 1000)
+}
+
+
+// TIMER TIME function
+// --> it will get
+function getTimerTime() {
+    // making sure the time is always a rounded down Integer
+    return Math.floor((new Date() - startingPoint) / 1000)
+}
+
+
+
+
+
+
+
+
+newQuote();
