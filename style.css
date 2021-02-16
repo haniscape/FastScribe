@@ -132,7 +132,7 @@ textarea::-webkit-scrollbar-thumb {
 #timer,
 #wpm,
 #lpm {
-  font-size: 2.4rem;
+  font-size: 2rem;
   line-height: 1;
   background: linear-gradient(to right top, #150101, #724503);
   -webkit-background-clip: text;
@@ -187,7 +187,7 @@ textarea::-webkit-scrollbar-thumb {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -1.5rem;
+  margin-top: -1rem;
 }
 
 .info-fastscribe h3 {
@@ -258,7 +258,7 @@ textarea::-webkit-scrollbar-thumb {
   }
 
   .info-fastscribe {
-    margin-top: 0;
+    margin-top: 1rem;
     text-align: center;
     width: 70%;
   }
