@@ -63,9 +63,7 @@ main {
 #stage-display {
   color: #c6a890;
   overflow-x: hidden;
-  font-size: 1.2rem;
   resize: none;
-  text-indent: none;
   padding: 0.75rem 1rem;
   width: 90%;
   height: 50%;
@@ -79,9 +77,7 @@ main {
   overflow-x: hidden;
   font-family: 'Hammersmith One';
   font-size: 1.2rem;
-  text-indent: 10px;
   resize: none;
-  text-indent: none;
   padding: 0.75rem 1rem;
   width: 90%;
   height: 50%;
@@ -132,9 +128,9 @@ textarea::-webkit-scrollbar-thumb {
 #timer,
 #wpm,
 #lpm {
-  font-size: 2rem;
+  font-size: 1.3rem;
   line-height: 1;
-  background: linear-gradient(to left bottom, #ddcfb6, #bb9577);
+  background: linear-gradient(to left bottom, #d3c9be, #d8c7ba);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
@@ -262,6 +258,25 @@ textarea::-webkit-scrollbar-thumb {
     margin-top: 1rem;
     text-align: center;
     width: 70%;
+  }
+}
+@media only screen and (max-height: 450px) and (max-width: 270px) {
+  #stage-input {
+    height: 50%;
+    width: 90%;
+    box-sizing: border-box;
+  }
+
+  #stage-display {
+    width: auto;
+  }
+  .screen {
+    min-height: 300vh;
+    width: 100%;
+  }
+  .stage {
+    min-height: 200vh;
+    width: 100%;
   }
 }
 @media only screen and (max-width: 270px) {
