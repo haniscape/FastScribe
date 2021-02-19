@@ -134,7 +134,7 @@ textarea::-webkit-scrollbar-thumb {
 #lpm {
   font-size: 2rem;
   line-height: 1;
-  background: linear-gradient(to right top, #150101, #724503);
+  background: linear-gradient(to left bottom, #ddcfb6, #bb9577);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   user-select: none;
